@@ -1,4 +1,4 @@
-package main.java.backend.helpers
+package backend.helpers
 
 enum class EndpointsGet(val hand: String) {
     NEW("https://randomuser.me/api/1.1/"),

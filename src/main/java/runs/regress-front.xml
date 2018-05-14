@@ -1,18 +1,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="regress-back">
+<suite name="Frontend">
     <listeners>
-        <listener class-name="main.java.listeners.RetryListener" />
-        <listener class-name="main.java.listeners.EventListener" />
+        <listener class-name="listeners.RetryListener" />
+        <listener class-name="listeners.EventListener" />
     </listeners>
     <test name="Regression for Frontend" >
         <groups>
             <run>
-                <include name="auth"/>
+                <include name="calculator"/>
             </run>
         </groups>
 
         <packages>
-            <package name="test.java.frontend.*" />
+            <package name="frontend.*" />
         </packages>
     </test>
 </suite>

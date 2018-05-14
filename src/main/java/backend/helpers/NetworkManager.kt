@@ -1,4 +1,4 @@
-package main.java.backend.helpers
+package backend.helpers
 
 import io.qameta.allure.Step
 import io.qameta.allure.restassured.AllureRestAssured

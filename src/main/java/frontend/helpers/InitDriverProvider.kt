@@ -1,4 +1,4 @@
-package main.java.helpers
+package frontend.helpers
 
 import com.codeborne.selenide.Configuration
 import com.codeborne.selenide.WebDriverProvider
@@ -20,7 +20,7 @@ open class InitDriverProvider : WebDriverProvider {
     }
 
     init {
-        Configuration.baseUrl = "https://vk.com"
+        Configuration.baseUrl = System.getProperty("HOST_UI")
         Configuration.browserSize = "1920x1080"
         Configuration.collectionsTimeout = 15000
         Configuration.reopenBrowserOnFail = true
