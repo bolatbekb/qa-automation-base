@@ -11,16 +11,15 @@ open class InitDriverProvider : WebDriverProvider {
 
     var HUB_URL = System.getProperty("HUB_URL").let { "localhost" }
 
-    override fun createDriver(capabilities: DesiredCapabilities): RemoteWebDriver {
-        val chromeOptions = ChromeOptions()
-        chromeOptions.setCapability("version", "75")
-        chromeOptions.setCapability("enableVNC", true)
-
-        return RemoteWebDriver(URL("http://$HUB_URL:4444/wd/hub"), chromeOptions)
-    }
+    override fun createDriver(capabilities: DesiredCapabilities) =
+            ChromeOptions()
+                    .apply {
+                        setCapability("version", "78")
+                        setCapability("enableVNC", true)
+                    }.run { RemoteWebDriver(URL("http://$HUB_URL:4444/wd/hub"), this) }
 
     init {
-        Configuration.baseUrl = "https://vk.com"
+        Configuration.baseUrl = "https://www.aircanada.com"
         Configuration.browserSize = "1920x1080"
         Configuration.timeout = 15000
         Configuration.reopenBrowserOnFail = true

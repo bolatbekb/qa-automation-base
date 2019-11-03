@@ -1,32 +1,25 @@
 package frontend.helpers
 
-import com.codeborne.selenide.ElementsCollection
 import com.codeborne.selenide.Selectors
-import com.codeborne.selenide.Selenide.`$$`
-import com.codeborne.selenide.Selenide.`$`
-import com.codeborne.selenide.SelenideElement
 import org.openqa.selenium.By
+import java.nio.channels.Selector
 
-fun element(bySelector: By) : SelenideElement {
-    return `$`(bySelector)
-}
-
-fun element(selector: String) : SelenideElement {
-    return `$`(selector)
-}
-
-fun elements(selector: String) : ElementsCollection {
-    return `$$`(selector)
-}
-
-fun elements(bySelector: By) : ElementsCollection {
-    return `$$`(bySelector)
-}
-
-fun byTarget(target : String) : By {
+fun byTarget(target: String): By {
     return Selectors.by("data-target", target)
 }
 
-fun byTargetId(target : String) : By {
+fun byTargetId(target: String): By {
     return Selectors.by("data-target-id", target)
+}
+
+fun byKeyventId(keyvent: String): By {
+    return Selectors.by("data-dev-keyvent-id", keyvent)
+}
+
+fun byDataHandler(dataHandler: String): By {
+    return Selectors.by("data-handler", dataHandler)
+}
+
+fun byDataSeId(dataSeId: String): By {
+    return Selectors.by("data-se-id", dataSeId)
 }
