@@ -1,7 +1,7 @@
 package frontend.elements
 
 import com.codeborne.selenide.Condition
-import com.codeborne.selenide.Condition.selected
+import com.codeborne.selenide.Condition.*
 import com.codeborne.selenide.Selectors.*
 import com.codeborne.selenide.Selenide
 import com.codeborne.selenide.Selenide.*
@@ -14,7 +14,6 @@ import io.qameta.allure.Step
 interface IFlightSearchMenu {
     //---TripType---
     val radioRoundTrip get() = element(byId("roundTrip"))
-    val radioOneWay get() = element(byId("oneWay"))
     //---Directions---
     val inpFrom get() = element(byId("origin_R_0"))
     val inpTo get() = element(byId("destination_R_0"))
@@ -26,6 +25,8 @@ interface IFlightSearchMenu {
     val submitCalendar get() = element(byId("calendarSelectActionBtn"))
     //---Find---
     val btnFind get() = element(byDataSeId("btnFlightsSearchOption2"))
+    //---Loading---
+    val flightWaitText get() = element(byXpath(".//img[contains(@class, \"ac-loader ng-show\")]"))
 
     @Step("Select Round trip")
     fun selectRoundTrip() {
@@ -36,6 +37,7 @@ interface IFlightSearchMenu {
     fun typeDepartureCity(cityCode: String) {
         inpFrom.apply {
             value = cityCode
+            sleep(500)
             pressEnter()
         }
     }
@@ -44,6 +46,7 @@ interface IFlightSearchMenu {
     fun typeArrivalCity(cityCode: String) {
         inpTo.apply {
             value = cityCode
+            sleep(500)
             pressEnter()
         }
     }
@@ -65,7 +68,7 @@ interface IFlightSearchMenu {
 
     @Step("Click to selected day")
     fun selectDay(day: String) {
-        days.findBy(Condition.text(day)).click()
+        days.findBy(text(day)).click()
     }
 
     @Step("Click to find button")
