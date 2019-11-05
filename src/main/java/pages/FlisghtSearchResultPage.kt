@@ -7,6 +7,7 @@ import com.codeborne.selenide.Selenide.element
 import com.codeborne.selenide.Selenide.elements
 import com.codeborne.selenide.SelenideElement
 import helpers.byDataSeId
+import helpers.extractInt
 import io.qameta.allure.Step
 
 class FlightSearchResultPage {
@@ -22,10 +23,10 @@ class FlightSearchResultPage {
     }
 
     @Step("Collect search results to list")
-    fun getSearchResults(time: Int): FlightBlockItem {
+    fun getFirstPremiumFlightAfterTime(time: Int): FlightBlockItem {
         return flightList.first {
-            it.departTime.text.replace(":","").toInt() >= time
-                    && it.premiumEconomyPrice().isDisplayed }
+            it.departTime.text.extractInt() >= time
+                    && it.premiumEconomy().isDisplayed }
     }
 
     @Step("Premium Economy was selected ")
@@ -37,7 +38,7 @@ class FlightSearchResultPage {
     inner class FlightBlockItem(val item: SelenideElement) {
         val departTime get() = item.find(byXpath(".//*[@class='itinerary-depart-time depart-time']"))
 
-        fun premiumEconomyPrice(): SelenideElement {
+        fun premiumEconomy(): SelenideElement {
             return item.find(byXpath(".//*[contains(@class, 'cabin-item PREM')]"))
         }
     }

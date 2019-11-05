@@ -22,7 +22,7 @@ class AirCanadaTest : BaseTest() {
         mainPage.clickFind()
 
         flightSearchResultPage.waitLoading()
-        flightSearchResultPage.getSearchResults(700).premiumEconomyPrice().click()
+        flightSearchResultPage.getFirstPremiumFlightAfterTime(700).premiumEconomy().click()
 
         assertThat(flightSearchResultPage.checkSelectedItem("Premium Economy")).isTrue()
     }
