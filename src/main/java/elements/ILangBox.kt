@@ -1,6 +1,6 @@
-package frontend.elements
+package elements
 
-import com.codeborne.selenide.Condition
+import com.codeborne.selenide.Condition.disappear
 import com.codeborne.selenide.Selectors.byId
 import com.codeborne.selenide.Selenide.element
 import io.qameta.allure.Step
@@ -11,6 +11,6 @@ interface ILangBox {
     @Step("Click to \"English Canada\" button")
     fun clickEngCaBtn() {
         btnEnglishCA.click()
-        btnEnglishCA.shouldBe(Condition.disappear.because("Language is visible"))
+        btnEnglishCA.shouldBe(disappear.because("Language is visible"))
     }
 }

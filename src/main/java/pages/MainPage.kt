@@ -1,8 +1,8 @@
-package frontend.pages
+package pages
 
 import com.codeborne.selenide.Selenide
-import frontend.elements.ILangBox
-import frontend.elements.IFlightSearchMenu
+import elements.IFlightSearchMenu
+import elements.ILangBox
 import io.qameta.allure.Step
 
 class MainPage : ILangBox, IFlightSearchMenu {

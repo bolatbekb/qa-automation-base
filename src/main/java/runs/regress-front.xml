@@ -4,7 +4,7 @@
         <listener class-name="listeners.RetryListener" />
         <listener class-name="listeners.EventListener" />
     </listeners>
-    <test name="Regression for Frontend" >
+    <test name="Regression for SkyGlobal" >
         <groups>
             <run>
                 <include name="skyGlobal"/>
@@ -12,7 +12,7 @@
         </groups>
 
         <packages>
-            <package name="test.java.frontend.*" />
+            <package name="skyGlobal.*" />
         </packages>
     </test>
 </suite>

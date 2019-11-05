@@ -1,8 +1,7 @@
-package frontend.helpers
+package helpers
 
 import com.codeborne.selenide.Selectors
 import org.openqa.selenium.By
-import java.nio.channels.Selector
 
 fun byTarget(target: String): By {
     return Selectors.by("data-target", target)
